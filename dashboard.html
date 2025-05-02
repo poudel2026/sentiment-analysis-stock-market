@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentimetrics AI Dashboard</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/svgs/solid/chart-line.svg"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.24.7/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.30.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@1.0.1/dist/chartjs-adapter-moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #b0c4de,
+          #008b8b
+        ); /* Light grayish-blue to teal */
+        color: #e0e7ff;
+        font-family: "Arial", sans-serif;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .ticker {
+        animation: ticker 10s linear infinite;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      .login-container {
+        background: linear-gradient(135deg, #008b8b, #b0c4de);
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+      .modal {
+        background: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+      }
+      .modal-content {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        width: 90%;
+        max-width: 1000px;
+        position: relative;
+      }
+      .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div id="login" class="flex items-center justify-center h-screen hidden">
+      <div class="login-container p-8 w-full max-w-md">
+        <h2 class="text-3xl font-bold text-center mb-6 text-white">
+          Sentimetrics Login
+        </h2>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter Password"
+          class="w-full p-3 mb-4 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <button
+          onclick="checkPassword()"
+          class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+    <div id="root" class="hidden"></div>
+
+    <script>
+      function checkPassword() {
+        const password = document.getElementById("password").value;
+        if (password === "stock123") {
+          document.getElementById("login").classList.add("hidden");
+          document.getElementById("root").classList.remove("hidden");
+        } else {
+          alert("Incorrect password. Please try again!");
+        }
+      }
+      document.getElementById("login").classList.remove("hidden");
+    </script>
+
+    <script type="text/babel">
+      // Main App Component
+      function App() {
+        const shares = [
+          "NABIL",
+          "NRIC",
+          "SHIVM",
+          "HBL",
+          "EBL",
+          "SCB",
+          "KBL",
+          "NMB",
+          "GBIME",
+          "NICA",
+          "PRVU",
+          "SBI",
+          "ADBL",
+        ];
+        const [selectedShare, setSelectedShare] = React.useState(shares[0]);
+        const [data, setData] = React.useState(null);
+        const [futureData, setFutureData] = React.useState(null);
+        const [error, setError] = React.useState(null);
+        const [actualChart, setActualChart] = React.useState(null);
+        const [sentimentChart, setSentimentChart] = React.useState(null);
+        const [predictedChart, setPredictedChart] = React.useState(null);
+        const [combinedChart, setCombinedChart] = React.useState(null);
+        const [latestActualPrice, setLatestActualPrice] = React.useState(null);
+        const [latestSentimentScore, setLatestSentimentScore] =
+          React.useState(null);
+        const [latestPredictedPrice, setLatestPredictedPrice] =
+          React.useState(null);
+        const [futurePrediction, setFuturePrediction] = React.useState("");
+        const [marketPulse, setMarketPulse] = React.useState("");
+        const [modalChart, setModalChart] = React.useState(null);
+        const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+        // Fetch and parse CSV data
+        const fetchData = () => {
+          setData(null);
+          setFutureData(null);
+          setError(null);
+          setLatestActualPrice(null);
+          setLatestSentimentScore(null);
+          setLatestPredictedPrice(null);
+          setFuturePrediction("");
+          const csvFile = `combined_data_with_predictions_${selectedShare}.csv`;
+          fetch(csvFile)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.text();
+            })
+            .then((csvText) => {
+              Papa.parse(csvText, {
+                header: true,
+                dynamicTyping: true,
+                skipEmptyLines: true,
+                complete: (result) => {
+                  if (result.errors.length > 0) {
+                    setError(
+                      "Error parsing CSV file: " +
+                        result.errors.map((e) => e.message).join("; ")
+                    );
+                    return;
+                  }
+                  const parsedData = result.data
+                    .filter(
+                      (row) => row.date && row.combined_sentiment !== undefined
+                    )
+                    .map((row) => ({
+                      date: row.date,
+                      close: row.Close,
+                      predictedClose: row.Predicted_Close,
+                      sentiment: row.combined_sentiment,
+                    }));
+                  if (parsedData.length === 0) {
+                    setError(`No valid data found in ${csvFile}.`);
+                    return;
+                  }
+                  const historicalData = parsedData.filter(
+                    (row) => row.close !== null
+                  );
+                  const futureData = parsedData.filter(
+                    (row) => row.close === null
+                  );
+                  setData(historicalData);
+                  setFutureData(futureData);
+
+                  if (historicalData.length > 0) {
+                    setLatestActualPrice(
+                      historicalData[historicalData.length - 1].close
+                    );
+                    setLatestSentimentScore(
+                      historicalData[historicalData.length - 1].sentiment
+                    );
+                    setLatestPredictedPrice(
+                      historicalData[historicalData.length - 1].predictedClose
+                    );
+                  }
+
+                  if (futureData.length > 0 && historicalData.length > 0) {
+                    const lastActual =
+                      historicalData[historicalData.length - 1].close;
+                    const lastPredicted =
+                      futureData[futureData.length - 1].predictedClose;
+                    const trend = lastPredicted > lastActual ? "rise" : "fall";
+                    setFuturePrediction(
+                      `The price of ${selectedShare} is expected to ${trend} to approximately ${lastPredicted.toFixed(
+                        2
+                      )} NRP in the next few days.`
+                    );
+
+                    const avgSentiment =
+                      historicalData.reduce(
+                        (sum, row) => sum + row.sentiment,
+                        0
+                      ) / historicalData.length;
+                    setMarketPulse(
+                      avgSentiment > 0 ? "Bullish 🌟" : "Bearish ⚠️"
+                    );
+                  }
+                },
+                error: (err) => setError("Error parsing CSV: " + err.message),
+              });
+            })
+            .catch((err) => setError("Error fetching CSV: " + err.message));
+        };
+
+        // Initial data fetch
+        React.useEffect(() => {
+          fetchData();
+        }, [selectedShare]);
+
+        // Initialize or update charts
+        React.useEffect(() => {
+          if (!data) return;
+
+          if (actualChart) actualChart.destroy();
+          if (sentimentChart) sentimentChart.destroy();
+          if (predictedChart) predictedChart.destroy();
+          if (combinedChart) combinedChart.destroy();
+
+          const dates = data.map((row) => row.date);
+          const closePrices = data.map((row) => row.close);
+          const predictedPrices = data.map((row) => row.predictedClose);
+          const sentimentScores = data.map((row) => row.sentiment);
+
+          const createChartConfig = (
+            id,
+            datasets,
+            title,
+            yAxisTitle,
+            yAxisID = "y"
+          ) => ({
+            type: "line",
+            data: { labels: dates, datasets },
+            options: {
+              responsive: true,
+              scales: {
+                x: {
+                  type: "time",
+                  time: {
+                    unit: "month",
+                    displayFormats: { month: "YYYY-MM-DD" },
+                  },
+                  title: { display: true, text: "Date" },
+                },
+                [yAxisID]: { title: { display: true, text: yAxisTitle } },
+              },
+              plugins: {
+                legend: { position: "top" },
+                title: { display: true, text: title },
+                zoom: {
+                  zoom: { wheel: { enabled: true }, pinch: { enabled: true } },
+                  pan: { enabled: true, mode: "x" },
+                },
+              },
+            },
+          });
+
+          const actualCtx = document
+            .getElementById("actualChart")
+            .getContext("2d");
+          setActualChart(
+            new Chart(
+              actualCtx,
+              createChartConfig(
+                "actualChart",
+                [
+                  {
+                    label: "Actual Close Price (NRP)",
+                    data: closePrices,
+                    borderColor: "blue",
+                    fill: false,
+                  },
+                ],
+                `${selectedShare} Actual Stock Price`,
+                "Close Price (NRP)"
+              )
+            )
+          );
+
+          const sentimentCtx = document
+            .getElementById("sentimentChart")
+            .getContext("2d");
+          setSentimentChart(
+            new Chart(
+              sentimentCtx,
+              createChartConfig(
+                "sentimentChart",
+                [
+                  {
+                    label: "Combined Sentiment Score",
+                    data: sentimentScores,
+                    borderColor: "orange",
+                    fill: false,
+                  },
+                ],
+                `Sentiment Analysis for ${selectedShare}`,
+                "Sentiment Score"
+              )
+            )
+          );
+
+          const predictedCtx = document
+            .getElementById("predictedChart")
+            .getContext("2d");
+          setPredictedChart(
+            new Chart(
+              predictedCtx,
+              createChartConfig(
+                "predictedChart",
+                [
+                  {
+                    label: "Predicted Close Price (NRP)",
+                    data: predictedPrices,
+                    borderColor: "red",
+                    borderDash: [5, 5],
+                    fill: false,
+                  },
+                ],
+                `${selectedShare} Predicted Stock Price`,
+                "Predicted Close Price (NRP)"
+              )
+            )
+          );
+
+          const allDates = [...dates];
+          const allActualPrices = [...closePrices];
+          const allPredictedPrices = [...predictedPrices];
+          const allSentimentScores = [...sentimentScores];
+
+          if (futureData) {
+            const futureDates = futureData.map((row) => row.date);
+            const futurePredictedPrices = futureData.map(
+              (row) => row.predictedClose
+            );
+            const futureSentimentScores = futureData.map(
+              (row) => row.sentiment
+            );
+            allDates.push(...futureDates);
+            allActualPrices.push(...Array(futureDates.length).fill(null));
+            allPredictedPrices.push(...futurePredictedPrices);
+            allSentimentScores.push(...futureSentimentScores);
+          }
+
+          const combinedCtx = document
+            .getElementById("combinedChart")
+            .getContext("2d");
+          setCombinedChart(
+            new Chart(combinedCtx, {
+              type: "line",
+              data: {
+                labels: allDates,
+                datasets: [
+                  {
+                    label: "Actual Close Price (NRP)",
+                    data: allActualPrices,
+                    borderColor: "blue",
+                    yAxisID: "y",
+                    fill: false,
+                  },
+                  {
+                    label: "Predicted Close Price (NRP)",
+                    data: allPredictedPrices,
+                    borderColor: "red",
+                    borderDash: [5, 5],
+                    yAxisID: "y",
+                    fill: false,
+                  },
+                  {
+                    label: "Combined Sentiment Score",
+                    data: allSentimentScores,
+                    borderColor: "orange",
+                    yAxisID: "y1",
+                    fill: false,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    type: "time",
+                    time: {
+                      unit: "month",
+                      displayFormats: { month: "YYYY-MM-DD" },
+                    },
+                    title: { display: true, text: "Date" },
+                  },
+                  y: {
+                    type: "linear",
+                    display: true,
+                    position: "left",
+                    title: { display: true, text: "Close Price (NRP)" },
+                  },
+                  y1: {
+                    type: "linear",
+                    display: true,
+                    position: "right",
+                    title: { display: true, text: "Sentiment Score" },
+                    grid: { drawOnChartArea: false },
+                  },
+                },
+                plugins: {
+                  legend: { position: "top" },
+                  title: {
+                    display: true,
+                    text: `${selectedShare} Stock Price and Sentiment Analysis (with Future Predictions)`,
+                  },
+                  zoom: {
+                    zoom: {
+                      wheel: { enabled: true },
+                      pinch: { enabled: true },
+                    },
+                    pan: { enabled: true, mode: "x" },
+                  },
+                },
+              },
+            })
+          );
+        }, [data, futureData, selectedShare]);
+
+        // Handle chart click to open modal
+        const handleChartClick = (chartId, chartConfig) => {
+          setIsModalOpen(true);
+          setTimeout(() => {
+            if (modalChart) modalChart.destroy();
+            const modalCtx = document
+              .getElementById("modalChart")
+              .getContext("2d");
+            const newModalChart = new Chart(modalCtx, chartConfig);
+            setModalChart(newModalChart);
+          }, 0);
+        };
+
+        // Close modal
+        const closeModal = () => {
+          setIsModalOpen(false);
+          if (modalChart) modalChart.destroy();
+        };
+
+        // Handle share selection
+        const handleShareChange = (event) => {
+          setSelectedShare(event.target.value);
+        };
+
+        // Handle refresh
+        const handleRefresh = () => {
+          fetchData();
+        };
+
+        return (
+          <div className="min-h-screen">
+            <nav className="bg-blue-800 p-4 shadow-lg">
+              <div className="container mx-auto flex justify-between items-center">
+                <h1 className="text-2xl font-bold text-white">
+                  Sentimetrics AI Dashboard
+                </h1>
+                <div>
+                  <button
+                    onClick={handleRefresh}
+                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300 mr-2"
+                  >
+                    Refresh Data
+                  </button>
+                  <select
+                    id="shareSelect"
+                    value={selectedShare}
+                    onChange={handleShareChange}
+                    className="p-2 rounded-lg bg-white text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  >
+                    {shares.map((share) => (
+                      <option key={share} value={share}>
+                        {share}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </nav>
+            <div className="container mx-auto p-6 pt-8">
+              {error && (
+                <div
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6"
+                  role="alert"
+                >
+                  <strong className="font-bold">Error: </strong>
+                  <span className="block sm:inline">{error}</span>
+                </div>
+              )}
+              {!data && !error && (
+                <div className="text-center text-gray-300 animate-pulse">
+                  Loading data for {selectedShare}...
+                </div>
+              )}
+              {data && (
+                <div className="space-y-8">
+                  <h2 className="text-2xl font-semibold text-center text-white">
+                    Welcome to {selectedShare} Market Analysis!
+                  </h2>
+                  <div className="bg-yellow-100/20 p-4 rounded-lg text-center mb-4">
+                    <p className="ticker whitespace-nowrap text-lg font-medium text-yellow-300">
+                      Market Pulse: {marketPulse} | Stock Prices Rising! 📈 |
+                      Sentiment Strong! 🌟
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    {/* Actual Price Chart */}
+                    <div
+                      className="card p-4 animate-fade-in"
+                      onClick={() =>
+                        handleChartClick("actualChart", actualChart?.config)
+                      }
+                    >
+                      <canvas id="actualChart"></canvas>
+                      {latestActualPrice !== null && (
+                        <p className="text-center mt-2 text-lg">
+                          Latest Actual Price:{" "}
+                          <span className="font-bold text-green-400">
+                            {latestActualPrice.toFixed(2)} NRP
+                          </span>
+                        </p>
+                      )}
+                      <img
+                        src="https://media.istockphoto.com/id/1211747338/vector/profit-analysis-icon-earning-growth.jpg?s=612x612&w=0&k=20&c=kjNZc6qUYOVu2fmNeFAgQP3TGkCcfdr0ayekzGI1p2U="
+                        alt="Stock Icon"
+                        className="mx-auto mt-2"
+                        style={{ width: "30px", height: "30px" }}
+                      />
+                    </div>
+
+                    {/* Sentiment Chart */}
+                    <div
+                      className="card p-4 animate-fade-in"
+                      onClick={() =>
+                        handleChartClick(
+                          "sentimentChart",
+                          sentimentChart?.config
+                        )
+                      }
+                    >
+                      <canvas id="sentimentChart"></canvas>
+                      {latestSentimentScore !== null && (
+                        <p className="text-center mt-2 text-lg">
+                          Latest Sentiment Score:{" "}
+                          <span className="font-bold text-orange-400">
+                            {latestSentimentScore.toFixed(2)}
+                          </span>
+                        </p>
+                      )}
+                      <img
+                        src="https://cdn.pixabay.com/photo/2021/02/13/19/00/happy-6012501_960_720.png"
+                        alt="Sentiment Icon"
+                        className="mx-auto mt-2"
+                        style={{ width: "30px", height: "30px" }}
+                      />
+                    </div>
+
+                    {/* Predicted Price Chart */}
+                    <div
+                      className="card p-4 animate-fade-in"
+                      onClick={() =>
+                        handleChartClick(
+                          "predictedChart",
+                          predictedChart?.config
+                        )
+                      }
+                    >
+                      <canvas id="predictedChart"></canvas>
+                      {latestPredictedPrice !== null && (
+                        <p className="text-center mt-2 text-lg">
+                          Latest Predicted Price:{" "}
+                          <span className="font-bold text-red-400">
+                            {latestPredictedPrice.toFixed(2)} NRP
+                          </span>
+                        </p>
+                      )}
+                      <img
+                        src="https://www.shutterstock.com/image-vector/icon-analyze-business-260nw-721075189.jpg"
+                        alt="Prediction Icon"
+                        className="mx-auto mt-2"
+                        style={{ width: "30px", height: "30px" }}
+                      />
+                    </div>
+
+                    {/* Combined Chart with Future Predictions */}
+                    <div
+                      className="card p-4 animate-fade-in"
+                      onClick={() =>
+                        handleChartClick("combinedChart", combinedChart?.config)
+                      }
+                    >
+                      <canvas id="combinedChart"></canvas>
+                      {futurePrediction && (
+                        <p className="text-center mt-2 text-lg font-semibold text-white">
+                          {futurePrediction}
+                        </p>
+                      )}
+                      <img
+                        src="https://img.icons8.com/ios-filled/50/ffffff/future.png"
+                        alt="Future Icon"
+                        className="mx-auto mt-2"
+                        style={{ width: "30px", height: "30px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Modal for Enlarged Chart */}
+            {isModalOpen && (
+              <div className="modal" onClick={closeModal}>
+                <div
+                  className="modal-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button className="modal-close" onClick={closeModal}>
+                    ×
+                  </button>
+                  <canvas id="modalChart" style={{ height: "70vh" }}></canvas>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      // Render the app
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

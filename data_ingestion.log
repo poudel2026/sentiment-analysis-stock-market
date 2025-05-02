@@ -1,0 +1,396 @@
+2025-05-01 22:34:12,856 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+32 - Could not authenticate you.
+2025-05-01 22:34:12,880 - ERROR - Error fetching the NEPSE URL: HTTPSConnectionPool(host='www.nepalstock.com.np', port=443): Max retries exceeded with url: /floor-sheet (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+2025-05-01 22:34:12,880 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:40:55,254 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+32 - Could not authenticate you.
+2025-05-01 22:40:55,310 - ERROR - Floor sheet table not found on the page.
+2025-05-01 22:40:55,311 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:43:23,890 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+32 - Could not authenticate you.
+2025-05-01 22:43:23,949 - ERROR - Floor sheet table not found on the page.  Check the HTML structure of the NEPSE website and update the table selector.
+2025-05-01 22:43:23,949 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:45:00,076 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+32 - Could not authenticate you.
+2025-05-01 22:45:00,141 - ERROR - Floor sheet table not found on the page.  Check the HTML structure of the NEPSE website and update the table selector.
+2025-05-01 22:45:00,142 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:46:24,766 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+89 - Invalid or expired token.
+2025-05-01 22:46:24,860 - ERROR - Floor sheet table not found on the page.  Check the HTML structure of the NEPSE website and update the table selector.
+2025-05-01 22:46:24,861 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:52:11,560 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+89 - Invalid or expired token.
+2025-05-01 22:52:11,617 - ERROR - Floor sheet table not found on the page.  Check the HTML structure of the NEPSE website and update the table selector.
+2025-05-01 22:52:11,618 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-01 22:57:02,643 - ERROR - Twitter error for query '#NEPSE': 401 Unauthorized
+32 - Could not authenticate you.
+2025-05-01 22:57:02,649 - ERROR - Error fetching NEPSE data using nepse-api: HTTPSConnectionPool(host='newweb.nepalstock.com.np', port=443): Max retries exceeded with url: /api/nots/securityDailyTradeStat/58 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001F1062C2270>: Failed to resolve 'newweb.nepalstock.com.np' ([Errno 11001] getaddrinfo failed)"))
+2025-05-01 22:57:02,649 - ERROR - No data to integrate. All DataFrames are None or empty.
+2025-05-02 00:51:12,466 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 00:51:12,468 - __main__ - INFO - Scraping news from https://kathmandupost.com/business
+2025-05-02 00:51:12,674 - __main__ - INFO - Scraped 0 articles from https://kathmandupost.com/business
+2025-05-02 00:51:12,674 - __main__ - WARNING - No news articles provided for cleaning.
+2025-05-02 00:51:12,676 - __main__ - INFO - Reading NEPSE data from C:\Users\hp\Desktop\sentiment\Today's Price - 2025-04-30.csv
+2025-05-02 00:51:12,680 - __main__ - INFO - Successfully read NEPSE data from C:\Users\hp\Desktop\sentiment\Today's Price - 2025-04-30.csv with 313 rows.
+2025-05-02 00:51:12,680 - __main__ - INFO - NEPSE data columns: ['Id', 'Business Date', 'Security Id', 'Symbol', 'Security Name', 'Open Price', 'High Price', 'Low Price', 'Close Price', 'Total Traded Quantity', 'Total Traded Value', 'Previous Day Close Price', 'Fifty Two Week High', 'Fifty Two Week Low', 'Last Updated Time', 'Last Updated Price', 'Total Trades', 'Average Traded Price', 'Market Capitalization']
+2025-05-02 00:51:12,689 - __main__ - INFO - Removed 0 duplicate or NA rows from NEPSE data.
+2025-05-02 00:51:12,689 - __main__ - INFO - Cleaned NEPSE data with 313 rows.
+2025-05-02 00:51:12,689 - __main__ - WARNING - No news data to save.
+2025-05-02 00:51:12,694 - __main__ - INFO - NEPSE data saved to nepse_data.csv
+2025-05-02 00:51:12,698 - __main__ - INFO - Data ingestion pipeline completed successfully
+2025-05-02 01:11:35,614 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:11:35,615 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:11:35,627 - __main__ - INFO - Saved NEPSE stock data to nepse_data.csv with 90 records
+2025-05-02 01:11:35,628 - __main__ - INFO - Generating mock news data for NEPSE
+2025-05-02 01:11:35,630 - __main__ - INFO - Saved news data to news_data.csv with 90 records
+2025-05-02 01:11:35,632 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 01:28:37,586 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:28:37,587 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:28:37,594 - __main__ - INFO - Saved NEPSE stock data to nepse_data.csv with 90 records
+2025-05-02 01:28:37,594 - __main__ - INFO - Generating mock news data for NEPSE
+2025-05-02 01:28:37,596 - __main__ - INFO - Saved news data to news_data.csv with 90 records
+2025-05-02 01:28:37,596 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 01:32:20,739 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:32:20,739 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:32:20,745 - __main__ - INFO - Saved NEPSE stock data to nepse_data.csv with 90 records
+2025-05-02 01:32:20,745 - __main__ - INFO - Generating mock news data for NEPSE
+2025-05-02 01:32:20,746 - __main__ - INFO - Saved news data to news_data.csv with 90 records
+2025-05-02 01:32:20,747 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 01:37:23,513 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:37:23,514 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:37:23,519 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 01:37:23,519 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 01:37:23,520 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 01:37:23,520 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 01:37:23,523 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 01:37:23,523 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 01:37:23,525 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 01:37:23,525 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 01:37:23,527 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 01:37:23,527 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 01:37:23,529 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 01:37:23,529 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 01:43:35,086 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:43:35,086 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:43:35,091 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 01:43:35,091 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 01:43:35,094 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 01:43:35,094 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 01:43:35,096 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 01:43:35,096 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 01:43:35,098 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 01:43:35,098 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 01:43:35,101 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 01:43:35,101 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 01:43:35,102 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 01:43:35,102 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 01:43:35,105 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 01:43:35,105 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 01:43:35,107 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 01:43:35,108 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 01:43:35,113 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 01:43:35,113 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 01:43:35,115 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 01:43:35,116 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 01:43:35,118 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 01:43:35,119 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 01:43:35,121 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 01:43:35,121 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 01:43:35,124 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 01:43:35,124 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 01:43:35,126 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 01:43:35,127 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 01:43:35,129 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 01:43:35,130 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 01:43:35,132 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 01:43:35,133 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 01:43:35,137 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 01:43:35,137 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 01:43:35,140 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 01:43:35,140 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 01:43:35,144 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 01:43:35,144 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 01:43:35,147 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 01:43:35,147 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 01:43:35,150 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 01:43:35,151 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 01:43:35,153 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 01:43:35,153 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 01:43:35,157 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 01:43:35,157 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 01:43:35,160 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 01:43:35,160 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 01:43:35,164 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 01:43:35,164 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 01:43:35,167 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 01:43:35,167 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 01:52:40,837 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 01:52:40,838 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 01:52:40,843 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 01:52:40,843 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 01:52:40,844 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 01:52:40,844 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 01:52:40,846 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 01:52:40,846 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 01:52:40,849 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 01:52:40,849 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 01:52:40,851 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 01:52:40,852 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 01:52:40,853 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 01:52:40,853 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 01:52:40,857 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 01:52:40,858 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 01:52:40,861 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 01:52:40,861 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 01:52:40,864 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 01:52:40,864 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 01:52:40,865 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 01:52:40,865 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 01:52:40,869 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 01:52:40,869 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 01:52:40,871 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 01:52:40,871 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 01:52:40,874 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 01:52:40,874 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 01:52:40,876 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 01:52:40,877 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 01:52:40,879 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 01:52:40,879 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 01:52:40,881 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 01:52:40,881 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 01:52:40,884 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 01:52:40,884 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 01:52:40,888 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 01:52:40,888 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 01:52:40,891 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 01:52:40,891 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 01:52:40,893 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 01:52:40,893 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 01:52:40,897 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 01:52:40,897 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 01:52:40,899 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 01:52:40,899 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 01:52:40,902 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 01:52:40,902 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 01:52:40,905 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 01:52:40,905 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 01:52:40,908 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 01:52:40,909 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 01:52:40,910 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 01:52:40,911 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 02:00:48,287 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 02:00:48,287 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 02:00:48,292 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 02:00:48,293 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 02:00:48,294 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 02:00:48,294 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 02:00:48,299 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 02:00:48,299 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 02:00:48,300 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 02:00:48,300 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 02:00:48,302 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 02:00:48,304 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 02:00:48,305 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 02:00:48,305 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 02:00:48,307 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 02:00:48,307 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 02:00:48,309 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 02:00:48,309 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 02:00:48,312 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 02:00:48,312 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 02:00:48,313 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 02:00:48,314 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 02:00:48,317 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 02:00:48,317 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 02:00:48,318 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 02:00:48,319 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 02:00:48,321 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 02:00:48,321 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 02:00:48,323 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 02:00:48,323 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 02:00:48,329 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 02:00:48,330 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 02:00:48,332 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 02:00:48,332 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 02:00:48,336 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 02:00:48,336 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 02:00:48,337 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 02:00:48,338 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 02:00:48,341 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 02:00:48,341 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 02:00:48,344 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 02:00:48,344 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 02:00:48,346 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 02:00:48,346 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 02:00:48,348 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 02:00:48,350 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 02:00:48,353 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 02:00:48,353 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 02:00:48,355 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 02:00:48,355 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 02:00:48,358 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 02:00:48,358 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 02:00:48,359 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 02:00:48,359 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 10:21:51,559 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 10:21:51,559 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 10:21:51,569 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 10:21:51,569 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 10:21:51,570 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 10:21:51,570 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 10:21:51,576 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 10:21:51,576 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 10:21:51,579 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 10:21:51,579 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 10:21:51,582 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 10:21:51,584 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 10:21:51,584 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 10:21:51,584 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 10:21:51,589 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 10:21:51,589 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 10:21:51,589 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 10:21:51,589 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 10:21:51,589 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 10:21:51,596 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 10:21:51,598 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 10:21:51,598 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 10:21:51,601 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 10:21:51,601 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 10:21:51,605 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 10:21:51,605 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 10:21:51,606 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 10:21:51,606 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 10:21:51,611 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 10:21:51,611 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 10:21:51,615 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 10:21:51,615 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 10:21:51,618 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 10:21:51,618 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 10:21:51,622 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 10:21:51,622 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 10:21:51,630 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 10:21:51,630 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 10:21:51,640 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 10:21:51,640 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 10:21:51,642 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 10:21:51,642 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 10:21:51,650 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 10:21:51,650 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 10:21:51,653 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 10:21:51,653 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 10:21:51,656 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 10:21:51,656 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 10:21:51,664 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 10:21:51,666 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 10:21:51,671 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 10:21:51,672 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 10:21:51,672 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 10:21:51,672 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 18:56:20,793 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 18:56:20,793 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 18:56:20,822 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 18:56:20,822 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 18:56:20,828 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 18:56:20,828 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 18:56:20,830 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 18:56:20,830 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 18:56:20,830 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 18:56:20,836 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 18:56:20,837 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 18:56:20,837 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 18:56:20,837 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 18:56:20,837 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 18:56:20,843 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 18:56:20,843 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 18:56:20,846 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 18:56:20,846 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 18:56:20,847 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 18:56:20,847 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 18:56:20,855 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 18:56:20,855 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 18:56:20,861 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 18:56:20,861 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 18:56:20,867 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 18:56:20,867 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 18:56:20,874 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 18:56:20,874 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 18:56:20,879 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 18:56:20,879 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 18:56:20,888 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 18:56:20,888 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 18:56:20,890 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 18:56:20,890 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 18:56:20,893 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 18:56:20,893 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 18:56:20,902 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 18:56:20,902 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 18:56:20,908 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 18:56:20,910 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 18:56:20,914 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 18:56:20,914 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 18:56:20,921 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 18:56:20,921 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 18:56:20,923 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 18:56:20,923 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 18:56:20,934 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 18:56:20,934 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 18:56:20,939 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 18:56:20,939 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 18:56:20,946 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 18:56:20,946 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 18:56:20,951 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 18:56:20,951 - __main__ - INFO - Data ingestion pipeline completed
+2025-05-02 20:23:51,662 - __main__ - INFO - Starting data ingestion pipeline
+2025-05-02 20:23:51,662 - __main__ - INFO - Generating mock NEPSE stock data for NABIL
+2025-05-02 20:23:51,683 - __main__ - INFO - Saved NEPSE stock data for NABIL to nepse_data_NABIL.csv with 90 records
+2025-05-02 20:23:51,683 - __main__ - INFO - Generating mock news data for NABIL
+2025-05-02 20:23:51,687 - __main__ - INFO - Saved news data for NABIL to news_data_NABIL.csv with 90 records
+2025-05-02 20:23:51,687 - __main__ - INFO - Generating mock NEPSE stock data for NRIC
+2025-05-02 20:23:51,694 - __main__ - INFO - Saved NEPSE stock data for NRIC to nepse_data_NRIC.csv with 90 records
+2025-05-02 20:23:51,694 - __main__ - INFO - Generating mock news data for NRIC
+2025-05-02 20:23:51,697 - __main__ - INFO - Saved news data for NRIC to news_data_NRIC.csv with 90 records
+2025-05-02 20:23:51,697 - __main__ - INFO - Generating mock NEPSE stock data for SHIVM
+2025-05-02 20:23:51,702 - __main__ - INFO - Saved NEPSE stock data for SHIVM to nepse_data_SHIVM.csv with 90 records
+2025-05-02 20:23:51,702 - __main__ - INFO - Generating mock news data for SHIVM
+2025-05-02 20:23:51,703 - __main__ - INFO - Saved news data for SHIVM to news_data_SHIVM.csv with 90 records
+2025-05-02 20:23:51,703 - __main__ - INFO - Generating mock NEPSE stock data for HBL
+2025-05-02 20:23:51,712 - __main__ - INFO - Saved NEPSE stock data for HBL to nepse_data_HBL.csv with 90 records
+2025-05-02 20:23:51,712 - __main__ - INFO - Generating mock news data for HBL
+2025-05-02 20:23:51,716 - __main__ - INFO - Saved news data for HBL to news_data_HBL.csv with 90 records
+2025-05-02 20:23:51,721 - __main__ - INFO - Generating mock NEPSE stock data for EBL
+2025-05-02 20:23:51,726 - __main__ - INFO - Saved NEPSE stock data for EBL to nepse_data_EBL.csv with 90 records
+2025-05-02 20:23:51,726 - __main__ - INFO - Generating mock news data for EBL
+2025-05-02 20:23:51,729 - __main__ - INFO - Saved news data for EBL to news_data_EBL.csv with 90 records
+2025-05-02 20:23:51,729 - __main__ - INFO - Generating mock NEPSE stock data for SCB
+2025-05-02 20:23:51,737 - __main__ - INFO - Saved NEPSE stock data for SCB to nepse_data_SCB.csv with 90 records
+2025-05-02 20:23:51,739 - __main__ - INFO - Generating mock news data for SCB
+2025-05-02 20:23:51,746 - __main__ - INFO - Saved news data for SCB to news_data_SCB.csv with 90 records
+2025-05-02 20:23:51,746 - __main__ - INFO - Generating mock NEPSE stock data for KBL
+2025-05-02 20:23:51,754 - __main__ - INFO - Saved NEPSE stock data for KBL to nepse_data_KBL.csv with 90 records
+2025-05-02 20:23:51,754 - __main__ - INFO - Generating mock news data for KBL
+2025-05-02 20:23:51,754 - __main__ - INFO - Saved news data for KBL to news_data_KBL.csv with 90 records
+2025-05-02 20:23:51,754 - __main__ - INFO - Generating mock NEPSE stock data for NMB
+2025-05-02 20:23:51,764 - __main__ - INFO - Saved NEPSE stock data for NMB to nepse_data_NMB.csv with 90 records
+2025-05-02 20:23:51,764 - __main__ - INFO - Generating mock news data for NMB
+2025-05-02 20:23:51,765 - __main__ - INFO - Saved news data for NMB to news_data_NMB.csv with 90 records
+2025-05-02 20:23:51,765 - __main__ - INFO - Generating mock NEPSE stock data for GBIME
+2025-05-02 20:23:51,770 - __main__ - INFO - Saved NEPSE stock data for GBIME to nepse_data_GBIME.csv with 90 records
+2025-05-02 20:23:51,770 - __main__ - INFO - Generating mock news data for GBIME
+2025-05-02 20:23:51,774 - __main__ - INFO - Saved news data for GBIME to news_data_GBIME.csv with 90 records
+2025-05-02 20:23:51,774 - __main__ - INFO - Generating mock NEPSE stock data for NICA
+2025-05-02 20:23:51,783 - __main__ - INFO - Saved NEPSE stock data for NICA to nepse_data_NICA.csv with 90 records
+2025-05-02 20:23:51,786 - __main__ - INFO - Generating mock news data for NICA
+2025-05-02 20:23:51,786 - __main__ - INFO - Saved news data for NICA to news_data_NICA.csv with 90 records
+2025-05-02 20:23:51,786 - __main__ - INFO - Generating mock NEPSE stock data for PRVU
+2025-05-02 20:23:51,794 - __main__ - INFO - Saved NEPSE stock data for PRVU to nepse_data_PRVU.csv with 90 records
+2025-05-02 20:23:51,794 - __main__ - INFO - Generating mock news data for PRVU
+2025-05-02 20:23:51,803 - __main__ - INFO - Saved news data for PRVU to news_data_PRVU.csv with 90 records
+2025-05-02 20:23:51,803 - __main__ - INFO - Generating mock NEPSE stock data for SBI
+2025-05-02 20:23:51,806 - __main__ - INFO - Saved NEPSE stock data for SBI to nepse_data_SBI.csv with 90 records
+2025-05-02 20:23:51,806 - __main__ - INFO - Generating mock news data for SBI
+2025-05-02 20:23:51,810 - __main__ - INFO - Saved news data for SBI to news_data_SBI.csv with 90 records
+2025-05-02 20:23:51,810 - __main__ - INFO - Generating mock NEPSE stock data for ADBL
+2025-05-02 20:23:51,814 - __main__ - INFO - Saved NEPSE stock data for ADBL to nepse_data_ADBL.csv with 90 records
+2025-05-02 20:23:51,814 - __main__ - INFO - Generating mock news data for ADBL
+2025-05-02 20:23:51,818 - __main__ - INFO - Saved news data for ADBL to news_data_ADBL.csv with 90 records
+2025-05-02 20:23:51,818 - __main__ - INFO - Data ingestion pipeline completed
